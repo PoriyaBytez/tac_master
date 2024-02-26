@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:tac/helpers/app_colors.dart';
+import 'package:tac/screens/applying_proprietary/applying_proprietary.dart';
+import 'package:tac/screens/appraisal_services/appraisal_services.dart';
+import 'package:tac/screens/comps_results/comps_results_screen.dart';
+import 'package:tac/screens/home_screen/home_screen.dart';
 import 'package:tac/screens/onboarding_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tac/screens/residential/residential_screen.dart';
-import 'package:tac/screens/talk_to_professional/display_comps_screen.dart';
-import 'package:tac/screens/talk_to_professional/talk_to_professional_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
             // rangePickerBackgroundColor: AppColors.whiteColor,
           ),
         ),
-        home: const OnBoardingScreen(),
+        home: const AppraisalServices(),
       );
     });
   }

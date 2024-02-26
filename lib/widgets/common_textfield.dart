@@ -14,6 +14,7 @@ class CommonTextField extends StatelessWidget {
   final void Function()? onTap;
   final void Function(String)? onChanged;
   final bool readOnly;
+  final double? width;
   CommonTextField({
     Key? key,
     required this.controller,
@@ -25,11 +26,13 @@ class CommonTextField extends StatelessWidget {
     this.onTap,
     this.onChanged,
     this.readOnly = false,
+    this.width,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      width: width ?? double.infinity,
       height: 7.5.h,
       child: TextField(
           readOnly: readOnly,

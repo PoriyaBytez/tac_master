@@ -1,6 +1,7 @@
 class AppImages {
   static const String home = 'assets/images/home.png';
   static const String statusCard = 'assets/images/status_card.png';
+  static const String blueCard = 'assets/images/blue_card.png';
 
   static const String backArrow = 'assets/icons/back_arrow.png';
   static const String iconDate = 'assets/icons/date.svg';

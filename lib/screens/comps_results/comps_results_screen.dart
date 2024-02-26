@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tac/helpers/app_images.dart';
 import 'package:tac/screens/comps_results/results_card.dart';
+import 'package:tac/screens/lodge_camp/lodge_camp_screen.dart';
 import '../../helpers/app_colors.dart';
 import '../../helpers/app_strings.dart';
 import '../../helpers/app_textstyle.dart';
@@ -9,6 +10,7 @@ import '../../widgets/common_button.dart';
 import '../../widgets/common_home_image.dart';
 import '../../widgets/sized_box.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class CompsResultScreen extends StatefulWidget {
   const CompsResultScreen({super.key});
@@ -81,7 +83,9 @@ class _CompsResultScreenState extends State<CompsResultScreen> {
                           width: 10.5.h,
                           height: 4.87.h,
                           child: FilledButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Get.to(() => const LodgeCampScreen());
+                              },
                               style: ButtonStyle(
                                 padding: MaterialStateProperty.all<EdgeInsets>(
                                     EdgeInsets.symmetric(horizontal: 1.h)),
