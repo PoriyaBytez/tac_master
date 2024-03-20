@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tac/helpers/app_colors.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import '../helpers/app_textstyle.dart';
+
+import '../utils/app_colors.dart';
+import '../utils/app_textstyle.dart';
 
 enum ButtonType { filledButton, outlineButton, textButton }
 

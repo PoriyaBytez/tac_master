@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:flutter/material.dart';
-import 'package:tac/helpers/app_colors.dart';
-import 'package:tac/helpers/app_textstyle.dart';
+import '../utils/app_colors.dart';
+import '../utils/app_textstyle.dart';
 
 class CommonTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -15,6 +15,8 @@ class CommonTextField extends StatelessWidget {
   final void Function(String)? onChanged;
   final bool readOnly;
   final double? width;
+  Widget? suffix;
+
   CommonTextField({
     Key? key,
     required this.controller,
@@ -23,6 +25,7 @@ class CommonTextField extends StatelessWidget {
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
     this.suffixIcon,
+    this.suffix,
     this.onTap,
     this.onChanged,
     this.readOnly = false,
@@ -35,13 +38,14 @@ class CommonTextField extends StatelessWidget {
       width: width ?? double.infinity,
       height: 7.5.h,
       child: TextField(
-          readOnly: readOnly,
-          onTap: onTap,
-          controller: controller,
-          decoration: inputDecoration(),
-          keyboardType: keyboardType,
-          obscureText: obscureText,
-          style: textStyle()),
+        readOnly: readOnly,
+        onTap: onTap,
+        controller: controller,
+        decoration: inputDecoration(),
+        keyboardType: keyboardType,
+        obscureText: obscureText,
+        style: textStyle(),
+      ),
     );
   }
 
@@ -53,6 +57,7 @@ class CommonTextField extends StatelessWidget {
         border: outlineInputBorder(),
         enabledBorder: outlineInputBorder(),
         focusedBorder: outlineInputBorder(),
+        suffix: suffixIcon,
         suffixIcon: suffixIcon);
   }
 

@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:tac/controllers/app_controller.dart';
-import 'package:tac/helpers/app_colors.dart';
-import 'package:tac/helpers/app_strings.dart';
+import 'package:tac/utils/app_colors.dart';
+import 'package:tac/utils/app_strings.dart';
+
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tac/helpers/app_textstyle.dart';
 import 'package:tac/widgets/sized_box.dart';
 import 'package:get/get.dart';
 
+import '../../utils/app_textstyle.dart';
 import '../../widgets/common_textfield.dart';
 
 AppController appController = Get.put(AppController());
 
 class CustomTabBar extends StatefulWidget {
   const CustomTabBar({super.key, required this.index});
+
   final int index;
+
   @override
   _CustomTabBarState createState() => _CustomTabBarState();
 }
 
 class _CustomTabBarState extends State<CustomTabBar> {
   int _selectedIndex = 0;
+
   void _onTabSelected(int index) {
     setState(() {
       appController.tabBarIndex.value = index;
@@ -93,7 +97,9 @@ class CustomTabBarItem extends StatelessWidget {
 
 class CustomTabBarView extends StatelessWidget {
   const CustomTabBarView(this.index, {super.key});
+
   final int index;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(

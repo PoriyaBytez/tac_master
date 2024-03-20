@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tac/helpers/app_colors.dart';
-import 'package:tac/helpers/app_strings.dart';
-import 'package:tac/helpers/app_textstyle.dart';
+import 'package:tac/utils/app_colors.dart';
+import 'package:tac/utils/app_strings.dart';
+import '../../utils/app_textstyle.dart';
 import 'package:tac/screens/residential/residential_screen.dart';
 import 'package:tac/widgets/sized_box.dart';
-import '../../helpers/app_images.dart';
 import '../../widgets/common_back_button.dart';
 import '../../widgets/common_button.dart';
 import '../../widgets/common_home_image.dart';

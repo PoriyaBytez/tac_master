@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tac/helpers/app_colors.dart';
-import 'package:tac/helpers/app_images.dart';
-import 'package:tac/helpers/app_strings.dart';
-import 'package:tac/helpers/app_textstyle.dart';
+import 'package:tac/utils/app_colors.dart';
+import 'package:tac/utils/app_strings.dart';
+
 import 'package:tac/screens/auth/login_screen.dart';
 import 'package:tac/screens/auth/register_screen.dart';
 import 'package:tac/widgets/common_button.dart';
@@ -11,6 +10,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tac/widgets/sized_box.dart';
 import 'package:get/get.dart';
 
+import '../utils/app_textstyle.dart';
 import '../widgets/common_home_image.dart';
 
 class OnBoardingScreen extends StatefulWidget {

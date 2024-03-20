@@ -4,7 +4,8 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import '../helpers/app_images.dart';
+
+import '../utils/app_images.dart';
 
 Widget commonHomeImage() {
   return Image.asset(

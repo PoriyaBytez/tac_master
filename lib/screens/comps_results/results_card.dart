@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tac/helpers/app_colors.dart';
-import 'package:tac/helpers/app_images.dart';
-import 'package:tac/helpers/app_strings.dart';
-import 'package:tac/helpers/app_textstyle.dart';
+import 'package:tac/utils/app_images.dart';
+import 'package:tac/utils/app_colors.dart';
+import 'package:tac/utils/app_strings.dart';
+import '../../utils/app_textstyle.dart';
 import 'package:tac/widgets/sized_box.dart';
 
 class ResultsCard extends StatefulWidget {

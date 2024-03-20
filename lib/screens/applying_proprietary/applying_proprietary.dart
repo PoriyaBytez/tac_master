@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tac/helpers/app_images.dart';
-import '../../helpers/app_colors.dart';
-import '../../helpers/app_strings.dart';
-import '../../helpers/app_textstyle.dart';
+import 'package:tac/utils/app_images.dart';
+
+import 'package:tac/utils/app_colors.dart';
+import 'package:tac/utils/app_strings.dart';
+import '../../utils/app_textstyle.dart';
 import '../../widgets/common_button.dart';
 import '../../widgets/common_home_image.dart';
 import '../../widgets/sized_box.dart';

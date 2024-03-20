@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tac/helpers/app_colors.dart';
-import 'package:tac/helpers/app_strings.dart';
-import 'package:tac/helpers/app_textstyle.dart';
+import '../utils/app_colors.dart';
+import '../utils/app_textstyle.dart';
+import '../utils/app_strings.dart';
 
 class YesNoToggle extends StatefulWidget {
   YesNoToggle({super.key, required this.isYesSelected});
+
   bool isYesSelected;
+
   @override
   _YesNoToggleState createState() => _YesNoToggleState();
 }

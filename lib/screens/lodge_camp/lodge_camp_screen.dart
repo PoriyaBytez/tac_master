@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tac/controllers/app_controller.dart';
-import '../../helpers/app_colors.dart';
-import '../../helpers/app_strings.dart';
-import '../../helpers/app_textstyle.dart';
+import 'package:tac/utils/app_colors.dart';
+import 'package:tac/utils/app_strings.dart';
+import 'package:tac/utils/app_textstyle.dart';
 import '../../widgets/common_back_button.dart';
 import '../../widgets/common_button.dart';
 import '../../widgets/common_home_image.dart';
@@ -23,6 +23,7 @@ class LodgeCampScreen extends StatefulWidget {
 
 class _LodgeCampScreenState extends State<LodgeCampScreen> {
   AppController appController = Get.put(AppController());
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

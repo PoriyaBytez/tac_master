@@ -15,6 +15,17 @@ class AppImages {
   static const String iconSqrt = 'assets/icons/sqrt.svg';
   static const String iconSqrFootage = 'assets/icons/sqrfootage.svg';
   static const String iconSwimmingPool = 'assets/icons/swimming_pool.svg';
+  static const String iconCalender = 'assets/icons/calender.svg';
+  static const String iconCall = 'assets/icons/call.svg';
+  static const String iconLock = 'assets/icons/lock.svg';
+  static const String iconPen = 'assets/icons/pen.svg';
+  static const String iconCheck = 'assets/icons/check.svg';
+  static const String iconDoc = 'assets/icons/doc.svg';
+  static const String iconMail = 'assets/icons/mail.svg';
+  static const String iconProfile = 'assets/icons/profile.svg';
+  static const String iconQuote = 'assets/icons/quote.svg';
+  static const String iconUnlock = 'assets/icons/unlock.svg';
+  static const String iconUpdate = 'assets/icons/update.svg';
 
   // Add more images here
   static const String homeCard = 'assets/images/home_card.png';

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:tac/helpers/app_images.dart';
-import 'package:tac/helpers/app_textstyle.dart';
+import 'package:tac/utils/app_images.dart';
+
 import 'package:tac/screens/residential/show_bottomsheet.dart';
 import 'package:tac/screens/talk_to_professional/talk_to_professional_screen.dart';
 import 'package:tac/widgets/common_button.dart';
 import 'package:tac/widgets/common_date_picker.dart';
 import 'package:tac/widgets/common_textfield.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import '../../helpers/app_colors.dart';
-import '../../helpers/app_strings.dart';
+import 'package:tac/utils/app_colors.dart';
+import 'package:tac/utils/app_strings.dart';
+
+import '../../utils/app_textstyle.dart';
 import '../../widgets/common_yes_no_toggle.dart';
 import '../../widgets/sized_box.dart';
 import 'package:flutter_svg/svg.dart';
@@ -25,6 +27,7 @@ class _LandScreenState extends State<LandScreen> {
   TextEditingController zoningController = TextEditingController();
   TextEditingController slotSizeController = TextEditingController();
   TextEditingController utilitiesController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

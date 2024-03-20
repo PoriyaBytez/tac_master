@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tac/helpers/app_colors.dart';
-import 'package:tac/helpers/app_images.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:tac/utils/app_images.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
+import '../utils/app_colors.dart';
 
 class CommonBackButton extends StatelessWidget {
   const CommonBackButton({super.key});

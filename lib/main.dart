@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:tac/helpers/app_colors.dart';
-import 'package:tac/screens/applying_proprietary/applying_proprietary.dart';
+import 'package:tac/screens/earn_extra_income_page/earn_extra_income_page.dart';
+import 'package:tac/screens/request_page/request_page.dart';
+import 'package:tac/utils/app_colors.dart';
 import 'package:tac/screens/appraisal_services/appraisal_services.dart';
-import 'package:tac/screens/comps_results/comps_results_screen.dart';
-import 'package:tac/screens/home_screen/home_screen.dart';
-import 'package:tac/screens/onboarding_screen.dart';
+
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
             scrolledUnderElevation: 0,
             elevation: 0,
           ),
-          datePickerTheme: DatePickerThemeData(
+          datePickerTheme: const DatePickerThemeData(
             backgroundColor: AppColors.whiteColor,
             // dayBackgroundColor: MaterialStatePropertyAll<Color>(
             //   AppColors.primaryColor.withOpacity(0.3),
@@ -41,7 +40,7 @@ class MyApp extends StatelessWidget {
             // rangePickerBackgroundColor: AppColors.whiteColor,
           ),
         ),
-        home: const AppraisalServices(),
+        home: const EarnExtraIncomePage(),
       );
     });
   }

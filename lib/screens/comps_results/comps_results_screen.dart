@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tac/helpers/app_images.dart';
+import 'package:tac/utils/app_images.dart';
+
 import 'package:tac/screens/comps_results/results_card.dart';
 import 'package:tac/screens/lodge_camp/lodge_camp_screen.dart';
-import '../../helpers/app_colors.dart';
-import '../../helpers/app_strings.dart';
-import '../../helpers/app_textstyle.dart';
-import '../../widgets/common_button.dart';
-import '../../widgets/common_home_image.dart';
+import 'package:tac/utils/app_colors.dart';
+import 'package:tac/utils/app_strings.dart';
+import '../../utils/app_textstyle.dart';
 import '../../widgets/sized_box.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
