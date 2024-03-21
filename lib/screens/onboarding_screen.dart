@@ -1,15 +1,13 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:tac/utils/app_colors.dart';
 import 'package:tac/utils/app_strings.dart';
-
 import 'package:tac/screens/auth/login_screen.dart';
 import 'package:tac/screens/auth/register_screen.dart';
 import 'package:tac/widgets/common_button.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tac/widgets/sized_box.dart';
 import 'package:get/get.dart';
-
 import '../utils/app_textstyle.dart';
 import '../widgets/common_home_image.dart';
 
@@ -44,7 +42,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           Text(
                             AppStrings.yourCompValue,
                             style: AppTextStyle.extraBold24(
-                                AppColors.primaryColor,
+                                AppColors.blueSmoke,
                                 type: AppTextStyleType.montserrat),
                           ),
                           hBox(3.h),
@@ -60,8 +58,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           CommonFilledButton(
                               text: AppStrings.login,
                               onPressed: () {
-                                Get.to(() => LoginScreen());
-                                print('Login button pressed');
+                                Get.to(() => const LoginScreen());
+                                log('Login button pressed');
                               }),
                           hBox(2.h),
                           Row(

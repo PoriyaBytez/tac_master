@@ -165,4 +165,20 @@ class AppStrings {
       "Check Status Of Appraisal Request";
   static const String unlockYourEarningsPotential =
       "Unlock Your Earnings Potential";
+
+  /// ERROR TEXT
+  static const String errorTxtUsernameEmpty = "Please enter your name";
+  static const String errorTxtEmailEmpty = "Please enter your email address";
+  static const String errorTxtUnValidEmail = "Please enter your valid email address";
+  static const String errorTxtPassEmpty = "Please enter your password";
+  static const String errorTxtPassLength = "Password must be at least 8 characters long";
+  static const String errorTxtConfirmPassEmpty = "Please enter your confirm password";
+  static const String errorTxtConfirmPass = "Password must be same as above";
+  static const String errorTxtWeakPass = "The password provided is too weak.";
+  static const String errorTxtEmailAlreadyRegister = "The account already exists for that email.";
+  static const String errorTxtInvalidUser = "Your username is invalid";
+  static const String errorTxtWrongPass  = "Your password is incorrect";
+
+  static const String txtLoginSuccess = "Login Successfully";
+  static const String txtRegisterSuccess = "Register successfully!";
 }

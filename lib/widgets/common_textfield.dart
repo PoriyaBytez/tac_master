@@ -16,6 +16,7 @@ class CommonTextField extends StatelessWidget {
   final bool readOnly;
   final double? width;
   Widget? suffix;
+  String? Function(String?)? validator;
 
   CommonTextField({
     Key? key,
@@ -30,6 +31,7 @@ class CommonTextField extends StatelessWidget {
     this.onChanged,
     this.readOnly = false,
     this.width,
+    this.validator
   }) : super(key: key);
 
   @override
@@ -37,7 +39,11 @@ class CommonTextField extends StatelessWidget {
     return SizedBox(
       width: width ?? double.infinity,
       height: 7.5.h,
-      child: TextField(
+      child: TextFormField(
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        validator: validator ?? (value) {
+          return null;
+        },
         readOnly: readOnly,
         onTap: onTap,
         controller: controller,

@@ -1,14 +1,22 @@
+import 'dart:developer';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:tac/screens/earn_extra_income_page/earn_extra_income_page.dart';
-import 'package:tac/screens/request_page/request_page.dart';
+import 'package:tac/screens/onboarding_screen.dart';
+import 'package:tac/screens/residential/residential_screen.dart';
 import 'package:tac/utils/app_colors.dart';
-import 'package:tac/screens/appraisal_services/appraisal_services.dart';
-
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'SharePref/SharePrefs.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  ).then((value) => {log("Firebase Connected --$value")});
+  await SpUtil.getInstance();
+
   runApp(const MyApp());
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: AppColors.whiteColor,
@@ -19,7 +27,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ResponsiveSizer(builder: (context, orientation, screenType) {
@@ -40,7 +47,9 @@ class MyApp extends StatelessWidget {
             // rangePickerBackgroundColor: AppColors.whiteColor,
           ),
         ),
-        home: const EarnExtraIncomePage(),
+        home: SpUtil.getString(SpConstUtil.currentUser) != ""
+            ? const ResidentialScreen()
+            : const OnBoardingScreen(),
       );
     });
   }

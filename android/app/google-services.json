@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "383083949744",
+    "project_id": "verixa-62",
+    "storage_bucket": "verixa-62.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383083949744:android:c3e40dfb3df06412941575",
+        "android_client_info": {
+          "package_name": "com.tac.tac"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD6-hSEY4DFlEErziPn1SsrarI7_L3_b0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

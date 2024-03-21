@@ -1,4 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:tac/SharePref/SharePrefs.dart';
+import 'package:tac/controllers/ResidentialController.dart';
 import 'package:tac/utils/app_images.dart';
 
 import 'package:tac/utils//app_textstyle.dart';
@@ -28,6 +32,7 @@ class _ResidentialScreenState extends State<ResidentialScreen> {
   TextEditingController lotSizeController = TextEditingController();
   TextEditingController livingAreaController = TextEditingController();
 
+  ResidentialController controller = Get.put(ResidentialController());
   @override
   Widget build(BuildContext context) {
     return SafeArea(
