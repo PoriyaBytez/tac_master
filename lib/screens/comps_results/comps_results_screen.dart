@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tac/utils/app_images.dart';
-
 import 'package:tac/screens/comps_results/results_card.dart';
 import 'package:tac/screens/lodge_camp/lodge_camp_screen.dart';
 import 'package:tac/utils/app_colors.dart';

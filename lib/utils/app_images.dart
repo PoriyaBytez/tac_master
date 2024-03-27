@@ -26,6 +26,9 @@ class AppImages {
   static const String iconQuote = 'assets/icons/quote.svg';
   static const String iconUnlock = 'assets/icons/unlock.svg';
   static const String iconUpdate = 'assets/icons/update.svg';
+  static const String iconGoogle = 'assets/icons/google-icon.png';
+  static const String iconApple = 'assets/icons/apple-icon.png';
+  static const String iconLogOut = 'assets/icons/logout.png';
 
   // Add more images here
   static const String homeCard = 'assets/images/home_card.png';

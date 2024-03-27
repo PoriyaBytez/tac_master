@@ -56,7 +56,7 @@ class _LodgeCampScreenState extends State<LodgeCampScreen> {
                     child: CustomTabBar(index: appController.tabBarIndex.value),
                   ),
                   hBox(3.75.h),
-                  CustomTabBarView(appController.tabBarIndex.value),
+                  CustomTabBarView(),
                 ],
               ),
               Positioned(top: 1.h, child: const CommonBackButton()),

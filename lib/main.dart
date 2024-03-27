@@ -3,11 +3,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:tac/screens/appraisal_services/appraisal_services.dart';
+import 'package:tac/screens/earn_extra_income/earn_extra_income_screen.dart';
+import 'package:tac/screens/home_screen/home_screen.dart';
 import 'package:tac/screens/onboarding_screen.dart';
+import 'package:tac/screens/request_page/request_page.dart';
 import 'package:tac/screens/residential/residential_screen.dart';
 import 'package:tac/utils/app_colors.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'SharePref/SharePrefs.dart';
+import 'Helper/SharePrefs.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -16,7 +20,6 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   ).then((value) => {log("Firebase Connected --$value")});
   await SpUtil.getInstance();
-
   runApp(const MyApp());
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: AppColors.whiteColor,
@@ -29,6 +32,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("USER ____>> ${SpUtil.getString(SpConstUtil.currentUser)}");
+    print("USER 11 ____>> ${SpUtil.getString("name")}");
     return ResponsiveSizer(builder: (context, orientation, screenType) {
       return GetMaterialApp(
         title: 'TAC',
@@ -47,9 +52,9 @@ class MyApp extends StatelessWidget {
             // rangePickerBackgroundColor: AppColors.whiteColor,
           ),
         ),
-        home: SpUtil.getString(SpConstUtil.currentUser) != ""
-            ? const ResidentialScreen()
-            : const OnBoardingScreen(),
+        home: SpUtil.getString(SpConstUtil.currentUser) == ""
+            ? const OnBoardingScreen()
+            : const ResidentialScreen(),
       );
     });
   }

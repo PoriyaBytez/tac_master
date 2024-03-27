@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tac/Helper/firebase_auth_helper.dart';
 import 'package:tac/controllers/LoginController.dart';
-import 'package:tac/screens/auth/forgot_password_screen.dart';
+import 'package:tac/screens/auth/otp_verification_screen.dart';
 import 'package:tac/utils/app_colors.dart';
 import 'package:tac/utils/app_strings.dart';
 import 'package:tac/widgets/TValidator.dart';
@@ -16,15 +16,17 @@ import '../../widgets/common_home_image.dart';
 import '../../widgets/common_textfield.dart';
 import 'package:get/get.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class NewPasswordScreen extends StatefulWidget {
+  const NewPasswordScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<NewPasswordScreen> createState() => _NewPasswordScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  LoginController controller = Get.find();
+class _NewPasswordScreenState extends State<NewPasswordScreen> {
+  TextEditingController newPasswordController = TextEditingController();
+  TextEditingController confirmPassController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -45,39 +47,35 @@ class _LoginScreenState extends State<LoginScreen> {
                         hBox(5.h),
                         Text(
                           textAlign: TextAlign.center,
-                          AppStrings.pickUpWhereYouLeft,
+                          AppStrings.lblNewPassword,
                           style: AppTextStyle.extraBold24(AppColors.blueSmoke,
                               type: AppTextStyleType.montserrat),
                         ),
                         hBox(3.2.h),
                         Form(
-                          key: controller.formKey,
+                          key: formKey,
                           child: Column(
                             children: [
                               CommonTextField(
-                                controller: controller.emailController,
-                                labelText: AppStrings.email,
+                                controller: newPasswordController,
+                                labelText: AppStrings.txtNewPass,
                                 validator: (value) {
-                                  final emailRegExp = RegExp(
-                                      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
-
                                   if (value!.isEmpty) {
-                                    return AppStrings.errorTxtEmailEmpty;
-                                  }
-                                  if (!emailRegExp.hasMatch(value)) {
-                                    return AppStrings.errorTxtUnValidEmail;
+                                    return AppStrings.errorTxtPassEmpty;
                                   }
                                   return null;
                                 },
                               ),
                               hBox(2.h),
                               CommonTextField(
-                                controller: controller.passWordController,
-                                labelText: AppStrings.password,
-                                obscureText: true,
+                                controller: confirmPassController,
+                                labelText: AppStrings.confirmPassword,
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return AppStrings.errorTxtPassEmpty;
+                                    return AppStrings.errorTxtUsernameEmpty;
+                                  } else if (value !=
+                                      newPasswordController.text) {
+                                    return AppStrings.errorTxtUnValidEmail;
                                   }
                                   return null;
                                 },
@@ -89,43 +87,30 @@ class _LoginScreenState extends State<LoginScreen> {
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 2.6.h),
                           child: CommonFilledButton(
-                            text: AppStrings.login,
+                            text: AppStrings.btnTxtResetPass,
                             onPressed: () {
-                              if (controller.formKey.currentState!.validate()) {
-                                log("----FORM VALIDATE LOGIN SCREEN----");
-                                FireBaseAuthHelper.fireBaseAuthHelper.loginUser(
-                                    context: context,
-                                    email: controller.emailController.text,
-                                    password:
-                                        controller.passWordController.text);
-                              }
+                              if (formKey.currentState!.validate()) {}
                             },
                           ),
                         ),
-                        hBox(2.h),
-                        CommonTextButton(
-                            text: AppStrings.forgotYourPassword,
-                            onPressed: () {
-                              Get.to(const ForgotPasswordScreen());
-                            })
                       ],
                     ),
-                    Positioned(top: 1.h, child: const CommonBackButton()),
+                    // Positioned(top: 1.h, child: const CommonBackButton()),
                   ],
                 ),
               ),
             ),
-            Obx(() => controller.isLoading.value
-                ? SizedBox(
-                    height: 90.h,
-                    width: double.infinity,
-                    child: const Center(
-                        child: SizedBox(
-                            height: 50,
-                            width: 50,
-                            child: CircularProgressIndicator())),
-                  )
-                : const SizedBox())
+            // Obx(() => controller.isLoading.value
+            //     ? SizedBox(
+            //   height: 90.h,
+            //   width: double.infinity,
+            //   child: const Center(
+            //       child: SizedBox(
+            //           height: 50,
+            //           width: 50,
+            //           child: CircularProgressIndicator())),
+            // )
+            //     : const SizedBox())
           ],
         ),
       ),

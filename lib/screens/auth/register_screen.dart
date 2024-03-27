@@ -1,10 +1,10 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tac/controllers/SignupController.dart';
+import 'package:tac/Helper/firebase_auth_helper.dart';
+import 'package:tac/controllers/RegisterController.dart';
 import 'package:tac/utils/app_colors.dart';
 import 'package:tac/utils/app_strings.dart';
-import 'package:tac/widgets/TValidator.dart';
 import '../../utils/app_textstyle.dart';
 import 'package:tac/widgets/sized_box.dart';
 import '../../widgets/common_back_button.dart';
@@ -21,7 +21,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  SignupController controller = Get.put(SignupController());
+  RegisterController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +70,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
 
                                   if (value!.isEmpty) {
-                                    return AppStrings.errorTxtUsernameEmpty;
+                                    return AppStrings.errorTxtEmailEmpty;
                                   }
                                   if (!emailRegExp.hasMatch(value)) {
                                     return AppStrings.errorTxtUnValidEmail;
@@ -95,7 +95,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               hBox(2.h),
                               CommonTextField(
                                 controller:
-                                    controller.confirmPasswordController,
+                                controller.confirmPasswordController,
                                 labelText: AppStrings.confirmPassword,
                                 obscureText: true,
                                 validator: (value) {
@@ -144,7 +144,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             onPressed: () {
                               if (controller.formKey.currentState!.validate()) {
                                 log("----FORM VALIDATE REGISTER PAGE----");
-                                controller.signUp();
+                                FireBaseAuthHelper.fireBaseAuthHelper
+                                    .registerUser(
+                                    email: controller.emailController.text,
+                                    password: controller.passWordController.text,
+                                    name: controller.userNameController.text,
+                                );
                               }
                             },
                           ),
@@ -173,16 +178,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   Positioned(top: 1.h, child: const CommonBackButton()),
                 ],
               ),
-              Obx(() => controller.isLoading.value
+              Obx(() =>
+              controller.isLoading.value
                   ? SizedBox(
-                      height: 90.h,
-                      width: double.infinity,
-                      child: const Center(
-                          child: SizedBox(
-                              height: 50,
-                              width: 50,
-                              child: CircularProgressIndicator())),
-                    )
+                height: 90.h,
+                width: double.infinity,
+                child: const Center(
+                    child: SizedBox(
+                        height: 50,
+                        width: 50,
+                        child: CircularProgressIndicator())),
+              )
                   : const SizedBox())
             ],
           ),

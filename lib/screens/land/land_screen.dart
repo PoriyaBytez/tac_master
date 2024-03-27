@@ -37,7 +37,7 @@ class _LandScreenState extends State<LandScreen> {
         leading: const SizedBox(),
         backgroundColor: AppColors.whiteColor,
         title: Text(AppStrings.land,
-            style: AppTextStyle.extraBold24(AppColors.primaryColor,
+            style: AppTextStyle.extraBold24(AppColors.blueSmoke,
                 type: AppTextStyleType.montserrat)),
         centerTitle: true,
         elevation: 0,

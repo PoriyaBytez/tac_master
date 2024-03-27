@@ -2,32 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:tac/controllers/app_controller.dart';
 import 'package:tac/utils/app_colors.dart';
 import 'package:tac/utils/app_strings.dart';
-
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tac/widgets/sized_box.dart';
 import 'package:get/get.dart';
-
 import '../../utils/app_textstyle.dart';
-import '../../widgets/common_textfield.dart';
 
 AppController appController = Get.put(AppController());
 
 class CustomTabBar extends StatefulWidget {
-  const CustomTabBar({super.key, required this.index});
-
   final int index;
+  const CustomTabBar({super.key, required this.index});
 
   @override
   _CustomTabBarState createState() => _CustomTabBarState();
 }
 
 class _CustomTabBarState extends State<CustomTabBar> {
-  int _selectedIndex = 0;
 
   void _onTabSelected(int index) {
-    setState(() {
       appController.tabBarIndex.value = index;
-    });
   }
 
   @override
@@ -67,7 +60,7 @@ class CustomTabBarItem extends StatelessWidget {
   final bool isSelected;
   final VoidCallback onTap;
 
-  const CustomTabBarItem({
+  const CustomTabBarItem({super.key,
     required this.text,
     required this.isSelected,
     required this.onTap,
@@ -96,22 +89,22 @@ class CustomTabBarItem extends StatelessWidget {
 }
 
 class CustomTabBarView extends StatelessWidget {
-  const CustomTabBarView(this.index, {super.key});
+  const CustomTabBarView( {super.key});
 
-  final int index;
+
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Obx(() => Expanded(
       child: IndexedStack(
         index: appController.tabBarIndex.value,
         children: [
-          Container(height: 100, color: Colors.red), // Content for Highlights
+          Container(height: 100, color: Colors.red),
           detailsWidget(), // Content for Details
           adjustmentWidget(), // Content for Adjustment
         ],
       ),
-    );
+    ) );
   }
 }
 

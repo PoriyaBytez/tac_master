@@ -115,7 +115,7 @@ class _AppraisalServicesState extends State<AppraisalServices> {
             child: Column(
               children: [
                 Text(AppStrings.appraisalServices,
-                    style: AppTextStyle.extraBold24(AppColors.primaryColor,
+                    style: AppTextStyle.extraBold24(AppColors.blueSmoke,
                         type: AppTextStyleType.montserrat)),
                 Text(AppStrings.getQuota,
                     textAlign: TextAlign.justify,

@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:synchronized/synchronized.dart';
 
 class SpConstUtil {
-  static String currentUser = "CurrentUser";
+  static String currentUser = "user";
 }
 
 class SpUtil {

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tac/Helper/firebase_auth_helper.dart';
 import 'package:tac/controllers/LoginController.dart';
-import 'package:tac/screens/auth/forgot_password_screen.dart';
+import 'package:tac/screens/auth/otp_verification_screen.dart';
 import 'package:tac/utils/app_colors.dart';
 import 'package:tac/utils/app_strings.dart';
 import 'package:tac/widgets/TValidator.dart';
@@ -16,15 +16,16 @@ import '../../widgets/common_home_image.dart';
 import '../../widgets/common_textfield.dart';
 import 'package:get/get.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class ForgotPasswordScreen extends StatefulWidget {
+  const ForgotPasswordScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  LoginController controller = Get.find();
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
+  TextEditingController emailController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -45,39 +46,27 @@ class _LoginScreenState extends State<LoginScreen> {
                         hBox(5.h),
                         Text(
                           textAlign: TextAlign.center,
-                          AppStrings.pickUpWhereYouLeft,
+                          AppStrings.lblEmailVerification,
                           style: AppTextStyle.extraBold24(AppColors.blueSmoke,
                               type: AppTextStyleType.montserrat),
                         ),
                         hBox(3.2.h),
                         Form(
-                          key: controller.formKey,
+                          key: formKey,
                           child: Column(
                             children: [
                               CommonTextField(
-                                controller: controller.emailController,
+                                controller: emailController,
                                 labelText: AppStrings.email,
                                 validator: (value) {
                                   final emailRegExp = RegExp(
                                       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
 
                                   if (value!.isEmpty) {
-                                    return AppStrings.errorTxtEmailEmpty;
+                                    return AppStrings.errorTxtUsernameEmpty;
                                   }
                                   if (!emailRegExp.hasMatch(value)) {
                                     return AppStrings.errorTxtUnValidEmail;
-                                  }
-                                  return null;
-                                },
-                              ),
-                              hBox(2.h),
-                              CommonTextField(
-                                controller: controller.passWordController,
-                                labelText: AppStrings.password,
-                                obscureText: true,
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return AppStrings.errorTxtPassEmpty;
                                   }
                                   return null;
                                 },
@@ -89,25 +78,18 @@ class _LoginScreenState extends State<LoginScreen> {
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 2.6.h),
                           child: CommonFilledButton(
-                            text: AppStrings.login,
-                            onPressed: () {
-                              if (controller.formKey.currentState!.validate()) {
-                                log("----FORM VALIDATE LOGIN SCREEN----");
-                                FireBaseAuthHelper.fireBaseAuthHelper.loginUser(
-                                    context: context,
-                                    email: controller.emailController.text,
-                                    password:
-                                        controller.passWordController.text);
+                            text: AppStrings.btnTxtResendLink,
+                            onPressed: () async {
+                              if (formKey.currentState!.validate()) {
+                                formKey.currentState!.save();
+                                await FireBaseAuthHelper.fireBaseAuthHelper
+                                    .resetPassword(
+                                  emailController.text,
+                                );
                               }
                             },
                           ),
                         ),
-                        hBox(2.h),
-                        CommonTextButton(
-                            text: AppStrings.forgotYourPassword,
-                            onPressed: () {
-                              Get.to(const ForgotPasswordScreen());
-                            })
                       ],
                     ),
                     Positioned(top: 1.h, child: const CommonBackButton()),
@@ -115,17 +97,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-            Obx(() => controller.isLoading.value
-                ? SizedBox(
-                    height: 90.h,
-                    width: double.infinity,
-                    child: const Center(
-                        child: SizedBox(
-                            height: 50,
-                            width: 50,
-                            child: CircularProgressIndicator())),
-                  )
-                : const SizedBox())
+            // Obx(() => controller.isLoading.value
+            //     ? SizedBox(
+            //   height: 90.h,
+            //   width: double.infinity,
+            //   child: const Center(
+            //       child: SizedBox(
+            //           height: 50,
+            //           width: 50,
+            //           child: CircularProgressIndicator())),
+            // )
+            //     : const SizedBox())
           ],
         ),
       ),

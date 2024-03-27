@@ -8,11 +8,11 @@ class AppStrings {
   static const String allRightsReserved =
       "©2023 Thomas Appraisal Co. All Rights Reserved";
   static const String pickUpWhereYouLeft = "PICK UP WHERE YOU LEFT OFF";
-  static const String userName = "*Username:";
-  static const String password = "*Password:";
+  static const String userName = "*Username";
+  static const String password = "*Password";
   static const String forgotYourPassword = "Forgot Your Password?";
-  static const String confirmPassword = "*Confirm Password:";
-  static const String email = "*Email:";
+  static const String confirmPassword = "*Confirm Password";
+  static const String email = "*Email";
   static const String createNewAccount = "CREATE NEW ACCOUNT";
   static const String byContinueAgree = "By continuing, you agree with our ";
   static const String termsAndCondition = "Terms & Conditions ";
@@ -176,9 +176,33 @@ class AppStrings {
   static const String errorTxtConfirmPass = "Password must be same as above";
   static const String errorTxtWeakPass = "The password provided is too weak.";
   static const String errorTxtEmailAlreadyRegister = "The account already exists for that email.";
-  static const String errorTxtInvalidUser = "Your username is invalid";
-  static const String errorTxtWrongPass  = "Your password is incorrect";
+  static const String errorTxtInvalidUser = "Invalid username";
+  static const String errorTxtWrongPass  = "Incorrect password";
+  static const String errorTxtInvalidCred  = "Invalid Credential";
+  static const String errorTxtEmailPass  = "Please check your email and password";
 
   static const String txtLoginSuccess = "Login Successfully";
   static const String txtRegisterSuccess = "Register successfully!";
+  static const String txtNewPass = "*New password";
+  static const String txtEmailVerification = "We have sent the code verification email";
+  static const String txtWelcomeApp = "Welcome to app";
+  static const String txtSentEmailVerification = "Email verification sent";
+  static const String txtPasswordReset = "Password reset email sent";
+  static const String txtLogout = "Are you sure you want to logout ?";
+  static const String txtEmailNotVerified = "Email is not verified";
+  static const String txtResendEmailVerification = "Do you want the link Resend for email verification?";
+  static const String txtEmailVerificationCheck = "Email is not verified\nPlease check your email for verification";
+
+  static const String btnTxtGoogleSignin = "Google";
+  static const String btnTxtResendLink = "Send Reset Link";
+  static const String btnTxtResetPass = "Reset Password";
+  static const String btnTxtNext = "Next";
+  static const String btnTxtCancel = "Cancel";
+  static const String btnTxtConfirm = "Confirm";
+
+  static const String lblTxtEarnExtraIncome = "EARN EXTRA INCOME";
+  static const String lblEmailVerification = "EMAIL VERIFICATION";
+  static const String lblOtpVerification = "VERIFICATION CODE";
+  static const String lblNewPassword = "NEW PASSWORD";
+  static const String lblConfirmLogout = "CONFIRM LOGOUT";
 }

@@ -10,7 +10,7 @@ class TSnackBar {
       isDismissible: true,
       shouldIconPulse: true,
       colorText: Colors.white,
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: AppColors.grey,
       snackPosition: SnackPosition.BOTTOM,
       duration: const Duration(seconds: 3),
       margin: const EdgeInsets.all(20),
